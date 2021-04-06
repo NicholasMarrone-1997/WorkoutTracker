@@ -36,17 +36,20 @@ const workoutSchema = new Schema({
             default: 0
         }
     }]
-}, {
-    toJSON: {
-        virutals: true
-    },
 });
 
-workoutSchema.virtual("totalDuration").get(function () {
-    return this.exercises.reduce((ttl, exc) => { //Basically like an accumulator, reduces total and exercise to a single value
-        return ttl + exc.duration;
-    }, 0); // start from 0
-});
+workoutSchema.set('toObject', { virtuals: true })
+workoutSchema.set('toJSON', { virtuals: true })
+
+workoutSchema.virtual("totalDuration")
+    .get(function () {
+        return this.exercises.reduce((ttl, exc) => { //Basically like an accumulator, reduces total and exercise to a single value
+            return ttl + exc.duration;
+        }, 0); // start from 0
+    })
+    .set(function(totalDuration){
+        this.totalDuration = totalDuration;
+    });
 
 const Workout = mongoose.model("workout", workoutSchema);
 

@@ -4,7 +4,6 @@ const Workout = require("../models/workout");
 module.exports = function(app){
     app.get("/api/workouts", function(req,res){
         Workout.find()
-       // .populate()
         .then(data => {
             console.log(data);
             res.json(data);
