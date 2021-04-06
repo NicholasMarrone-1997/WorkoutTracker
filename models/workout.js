@@ -43,9 +43,9 @@ const workoutSchema = new Schema({
 });
 
 workoutSchema.virtual("totalDuration").get(function () {
-    return this.exercises.reduce((total, exercise) => {
-        return total + exercise.duration;
-    }, 0);
+    return this.exercises.reduce((ttl, exc) => { //Basically like an accumulator, reduces total and exercise to a single value
+        return ttl + exc.duration;
+    }, 0); // start from 0
 });
 
 const Workout = mongoose.model("workout", workoutSchema);
