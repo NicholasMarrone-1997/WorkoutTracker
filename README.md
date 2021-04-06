@@ -26,6 +26,6 @@ The user should be able to:
 
 ## Submissions
 
-URL to deployed application: 
+URL to deployed application: https://floating-sands-82285.herokuapp.com/
 
-Github repository url: 
+Github repository url: https://github.com/NicholasMarrone-1997/WorkoutTracker
