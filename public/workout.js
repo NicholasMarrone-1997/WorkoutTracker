@@ -46,7 +46,7 @@ function formatDate(date) {
 
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
-
+  console.log(summary);
   const workoutKeyMap = {
     date: "Date",
     totalDuration: "Total Workout Duration",
@@ -60,6 +60,10 @@ function renderWorkoutSummary(summary) {
   Object.keys(summary).forEach(key => {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
+    
+    console.log(workoutKeyMap[key]);
+    console.log('key',key);
+    console.log('val', summary[key])
 
     strong.textContent = workoutKeyMap[key];
     const textNode = document.createTextNode(`: ${summary[key]}`);
